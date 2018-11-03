@@ -1,24 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="MainViewController" customClass="MainViewController" customModule="RafaelColonAMCAssesment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shudder Wannabe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AL-tD-R3a">
+                                <rect key="frame" x="100.5" y="28" width="174" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.76503638699999998" green="0.21848244859999999" blue="0.16512662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Du-fA-reX">
+                                <rect key="frame" x="15" y="60" width="345" height="597"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroesTableCell" rowHeight="150" id="yQp-sS-i2j" userLabel="HeroCarouselTableCell" customClass="HeroesTableCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="345" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yQp-sS-i2j" id="uwA-YR-W6Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Onz-do-Ytl" userLabel="HeroCarousel">
+                                                    <rect key="frame" x="0.0" y="0.0" width="345" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vR4-vW-zC3">
+                                                        <size key="itemSize" width="345" height="150"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroCarouselCell" id="olS-oF-KyN" customClass="HeroCarouselCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="150"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="150"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-rE-qjD" userLabel="HeroImage">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="150"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstItem="5tl-rE-qjD" firstAttribute="leading" secondItem="olS-oF-KyN" secondAttribute="leading" id="Iqq-R8-rAK"/>
+                                                                <constraint firstAttribute="trailing" secondItem="5tl-rE-qjD" secondAttribute="trailing" id="QMU-We-FVR"/>
+                                                                <constraint firstAttribute="bottom" secondItem="5tl-rE-qjD" secondAttribute="bottom" id="QYX-RV-ewc"/>
+                                                                <constraint firstItem="5tl-rE-qjD" firstAttribute="top" secondItem="olS-oF-KyN" secondAttribute="top" id="af9-2b-tkh"/>
+                                                            </constraints>
+                                                            <size key="customSize" width="345" height="150"/>
+                                                            <connections>
+                                                                <outlet property="heroImageView" destination="5tl-rE-qjD" id="xlr-32-uru"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <outlet property="heroesUICollectionView" destination="Onz-do-Ytl" id="sgW-hm-Af0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostersTableCell" rowHeight="140" id="ZP4-lZ-1gZ" userLabel="PosterCarouselTableCell" customClass="PostersTableCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="178" width="345" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZP4-lZ-1gZ" id="6oA-T5-Q6A">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iuv-8I-HJk" userLabel="PosterCarousel">
+                                                    <rect key="frame" x="0.0" y="34" width="345" height="105"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ujw-Za-rV9">
+                                                        <size key="itemSize" width="75" height="105"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroCarouselCell" id="xsw-Fz-BJn" customClass="PosterCarouselCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="105"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="105"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mef-Zn-JXj" userLabel="PosterImage">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="105"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="mef-Zn-JXj" secondAttribute="trailing" id="3iE-7D-cib"/>
+                                                                <constraint firstItem="mef-Zn-JXj" firstAttribute="top" secondItem="xsw-Fz-BJn" secondAttribute="top" id="C6d-Mx-9Jc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="mef-Zn-JXj" secondAttribute="bottom" id="Wce-cG-S80"/>
+                                                                <constraint firstItem="mef-Zn-JXj" firstAttribute="leading" secondItem="xsw-Fz-BJn" secondAttribute="leading" id="jZI-8j-VrR"/>
+                                                            </constraints>
+                                                            <size key="customSize" width="75" height="105"/>
+                                                            <connections>
+                                                                <outlet property="posterImageView" destination="mef-Zn-JXj" id="f2z-Y3-OI7"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tittle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBB-Gh-TjV" userLabel="CarouselTittle">
+                                                    <rect key="frame" x="6" y="11" width="34" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="postersTittleLabel" destination="ZBB-Gh-TjV" id="6cg-tL-ahC"/>
+                                            <outlet property="postersUICollectionView" destination="iuv-8I-HJk" id="0pm-PQ-cJW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="7Du-fA-reX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5zy-0o-Lwq"/>
+                            <constraint firstItem="3AL-tD-R3a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FNM-Zt-lmC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Du-fA-reX" secondAttribute="trailing" constant="15" id="OJK-wT-wCh"/>
+                            <constraint firstItem="7Du-fA-reX" firstAttribute="top" secondItem="3AL-tD-R3a" secondAttribute="bottom" constant="8" id="Y0d-rk-C7v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Du-fA-reX" secondAttribute="bottom" constant="10" id="cnB-yg-ydV"/>
+                            <constraint firstItem="3AL-tD-R3a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="iR3-b1-cZB"/>
+                            <constraint firstItem="7Du-fA-reX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="yQG-yl-kQa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mainTableView" destination="7Du-fA-reX" id="yZq-AV-MOj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="140" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
