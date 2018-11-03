@@ -34,6 +34,12 @@ class MainViewModel:NSObject {
             (results, error) in
             if(results != nil){
                 self.galleries = results;
+                /*
+                 NOTE: As we coudn't find any gallery flag or gallery ordering system in the Flickr API, this sort is just because the Flickr gallery (called "Banners") we are using for the top large banners (Heroes UICollectionView) is the gallery with the smallest name alphabetically, and for this example we always want it in cell position 0 for the tableview to distinct.
+                 
+                 On a real case scenario, the API would have some sort of flag system for the app to differentiate between banner (Heroes UICollectionView) type collections vs standard poster collections, or even a structured ordering convention.
+                 */
+                self.galleries?.sort(by: { $0.name! < $1.name! });
                 completion(nil);
             } else {
                 completion(error);

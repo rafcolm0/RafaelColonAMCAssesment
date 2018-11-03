@@ -18,6 +18,7 @@ class HeroesTableCell: UITableViewCell {
             (error) in
             if(error == nil){
                 self.galleryCollectionView.dataSource = self;
+                //delegate for this view controller is empty; assigned here anyway to imitate real setup
                 self.galleryCollectionView.delegate = self;
                 self.galleryCollectionView.reloadData();
             } else {
@@ -38,8 +39,12 @@ extension HeroesTableCell: UICollectionViewDataSource{
         cell.heroImageView.kf.setImage(with:url, placeholder: UIImage(named: "icon_loading_placeholder"));
         return cell;
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //dummy functionality to imitate on cell click
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        feedbackGenerator.impactOccurred()
+    }
 }
 
-extension HeroesTableCell: UICollectionViewDelegate{
-    
-}
+extension HeroesTableCell: UICollectionViewDelegate{}

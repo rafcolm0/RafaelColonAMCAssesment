@@ -40,6 +40,11 @@ extension MainViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell?;
         let gallery = self.mainViewModel.galleries![indexPath.row];
+        /*
+         NOTE: As we are sorting galleries alphabetically by name on the view model, our Flickr gallery (called "Banners") containing the top large banners (Heroes UICollectionView) will always be at position 0.
+         
+         On a real case scenario, we would have a better gallery type distinction system, so that we could take advantance of this dynamic cell tableview, and possibly have multiple (Heroes UICollectionView) throughtout the table view.
+         */
         if(indexPath.row == 0){
             cell = tableView.dequeueReusableCell(withIdentifier: "HeroesTableCell", for: indexPath) as! HeroesTableCell;
         } else {
@@ -49,9 +54,20 @@ extension MainViewController:UITableViewDataSource{
         (cell as! HeroesTableCell).generateFlickrCollectionCarousel(gallery:gallery);
         return cell!;
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //dummy functionality to imitate on cell click 
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        feedbackGenerator.impactOccurred()
+    }
 }
 
-extension MainViewModel:UITableViewDelegate{
-    
+extension MainViewController:UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.row == 0){
+            return 150;
+        }
+        return 140;
+    }
 }
 

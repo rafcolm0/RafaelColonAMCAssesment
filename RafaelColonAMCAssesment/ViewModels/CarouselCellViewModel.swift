@@ -27,9 +27,14 @@ class CarouselCellViewModel: NSObject {
         return self.gallery.posters?[position] ?? nil;
     }
     
+    /** Flickr DOWNLOAD URL TYPES:
+     https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+     https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
+     https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{o-secret}_o.(jpg|gif|png)
+     **/
     func generatePosterImageURLAt(position:Int) -> URL{
         let poster = getPosterAt(position: position);
-        let url = String.init(format: "https://farm%@.staticflickr.com/%@/%@_%@_o.jpg", poster!.farmId, poster!.serverId, poster!.id, poster!.secret);
+        let url = String.init(format: "https://farm%@.staticflickr.com/%@/%@_%@.jpg", poster!.farmId, poster!.serverId, poster!.id, poster!.secret);
         return URL(string: url)!;
     }
     
