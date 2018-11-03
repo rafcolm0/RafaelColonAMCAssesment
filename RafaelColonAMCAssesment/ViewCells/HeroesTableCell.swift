@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/*
+ UITableViewCell class that "acts" as a "view controller" for the UICollectionView it holds. This UICollectionView is the gallery view populated with posters for the PosterGallery value from self.CarouselCellViewModel.
+ */
 class HeroesTableCell: UITableViewCell {
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     var carouselViewModel:CarouselCellViewModel?
@@ -22,7 +25,8 @@ class HeroesTableCell: UITableViewCell {
                 self.galleryCollectionView.delegate = self;
                 self.galleryCollectionView.reloadData();
             } else {
-                //msg
+                //if error: for the purpose of the test, we are just setting galleryCollectionView background to red. In real case scenario, here we could show some error message, hide the entire tableview cell, send error logs back to the app stat analytics, etc.
+                self.galleryCollectionView.backgroundColor = UIColor.red;
             }
         });
     }
@@ -47,4 +51,5 @@ extension HeroesTableCell: UICollectionViewDataSource{
     }
 }
 
+//UICollectionViewDelegate extended to imitate real setup
 extension HeroesTableCell: UICollectionViewDelegate{}

@@ -18,7 +18,6 @@
 		51B32288218CA47A00A3311B /* RafaelColonAMCAssesmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B32287218CA47A00A3311B /* RafaelColonAMCAssesmentUITests.swift */; };
 		51B32299218CAA8000A3311B /* HeroesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B32298218CAA8000A3311B /* HeroesTableCell.swift */; };
 		51B3229D218CAAA200A3311B /* HeroCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B3229C218CAAA200A3311B /* HeroCarouselCell.swift */; };
-		51B3229F218CAACB00A3311B /* PosterCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B3229E218CAACB00A3311B /* PosterCarouselCell.swift */; };
 		51B322A1218CAB0200A3311B /* PostersTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B322A0218CAB0200A3311B /* PostersTableCell.swift */; };
 		51B322A5218CB3DC00A3311B /* PhotoDownloadHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B322A4218CB3DC00A3311B /* PhotoDownloadHandler.swift */; };
 		51B322A9218CB44900A3311B /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B322A8218CB44900A3311B /* Poster.swift */; };
@@ -67,7 +66,6 @@
 		51B32289218CA47A00A3311B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51B32298218CAA8000A3311B /* HeroesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableCell.swift; sourceTree = "<group>"; };
 		51B3229C218CAAA200A3311B /* HeroCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCarouselCell.swift; sourceTree = "<group>"; };
-		51B3229E218CAACB00A3311B /* PosterCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCarouselCell.swift; sourceTree = "<group>"; };
 		51B322A0218CAB0200A3311B /* PostersTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostersTableCell.swift; sourceTree = "<group>"; };
 		51B322A4218CB3DC00A3311B /* PhotoDownloadHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownloadHandler.swift; sourceTree = "<group>"; };
 		51B322A8218CB44900A3311B /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			children = (
 				51B32298218CAA8000A3311B /* HeroesTableCell.swift */,
 				51B3229C218CAAA200A3311B /* HeroCarouselCell.swift */,
-				51B3229E218CAACB00A3311B /* PosterCarouselCell.swift */,
 				51B322A0218CAB0200A3311B /* PostersTableCell.swift */,
 			);
 			path = ViewCells;
@@ -468,7 +465,6 @@
 				51B322AB218CB45A00A3311B /* PosterGallery.swift in Sources */,
 				51B322A1218CAB0200A3311B /* PostersTableCell.swift in Sources */,
 				51B322A5218CB3DC00A3311B /* PhotoDownloadHandler.swift in Sources */,
-				51B3229F218CAACB00A3311B /* PosterCarouselCell.swift in Sources */,
 				51B32265218CA47900A3311B /* AppDelegate.swift in Sources */,
 				51B322AE218CF10200A3311B /* MainViewModel.swift in Sources */,
 			);

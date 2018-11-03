@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
         self.mainTableView.dataSource = self;
         self.mainTableView.delegate = self;
@@ -23,13 +22,12 @@ class MainViewController: UIViewController {
             error in
             if(error == nil){
                 self.mainTableView.reloadData();
-                self.mainTableView.isHidden = false;
             } else {
-                //show msg
+                //if error: for the purpose of the test, we are just setting mainTableView background to red. In real case scenario, here we could show some error message, exit the app, use historial data (backups), send error logs back to the app stat analytics, etc.
+                self.mainTableView.backgroundColor = UIColor.red;
             }
         });
     }
-
 }
 
 extension MainViewController:UITableViewDataSource{
@@ -51,6 +49,7 @@ extension MainViewController:UITableViewDataSource{
             cell = tableView.dequeueReusableCell(withIdentifier: "PostersTableCell", for: indexPath) as! PostersTableCell;
             (cell as! PostersTableCell).postersTittleLabel.text = gallery.name;
         }
+        //ok to force-unwrap here are the cell should be initialized here
         (cell as! HeroesTableCell).generateFlickrCollectionCarousel(gallery:gallery);
         return cell!;
     }

@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/*
+ UITableViewCell that extends super class HeroesTableCell to contain the tableview gallery section tittle label.
+ */
 class PostersTableCell: HeroesTableCell {
     @IBOutlet weak var postersTittleLabel: UILabel!
 }
