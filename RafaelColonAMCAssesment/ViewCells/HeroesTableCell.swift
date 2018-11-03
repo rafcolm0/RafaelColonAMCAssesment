@@ -40,6 +40,7 @@ extension HeroesTableCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let url = self.carouselViewModel?.generatePosterImageURLAt(position:indexPath.row);
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCarouselCell", for: indexPath) as! HeroCarouselCell;
+        //icon_loading_placeholder is a free licensed icon
         cell.heroImageView.kf.setImage(with:url, placeholder: UIImage(named: "icon_loading_placeholder"));
         return cell;
     }
