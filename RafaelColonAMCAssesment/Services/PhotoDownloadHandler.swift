@@ -60,7 +60,8 @@ class PhotoDownloadHandler{
         }
     }
     
-    func downloadPhotosFor(gallery:PosterGallery!, completion: @escaping ((posters:[Poster]?, error:PhotoDownloadHandlerError?)) -> Void){
+//    func downloadPhotosFor(gallery:PosterGallery!, completion: @escaping ((posters:[Poster]?, error:PhotoDownloadHandlerError?)) -> Void){
+    func downloadPhotosFor(gallery:PosterGallery!, completion: @escaping ((PhotoDownloadHandlerError?)) -> Void){
         Alamofire.request(PhotoDownloadHandler.FLICKR_URL,
                           method: .get,
                           parameters: [PhotoDownloadHandler.FLICKR_METHOD:PhotoDownloadHandler.FLICKR_METHOD_GET_GALLERY_PICS, PhotoDownloadHandler.FLICKR_PARAM_API_KEY:PhotoDownloadHandler.flickr_API_KEY, PhotoDownloadHandler.FLICKR_PARAM_GALLERYID:gallery.id, PhotoDownloadHandler.FLICKR_PARAM_FORMAT:PhotoDownloadHandler.FLICKR_FORMAT, PhotoDownloadHandler.FLICKR_PARAM_NOJSONCALLBACK: PhotoDownloadHandler.FLICKR_NOJSONCALLBACK])
@@ -68,22 +69,22 @@ class PhotoDownloadHandler{
             .responseJSON { response in
                 print(response.request!);
                 guard response.result.isSuccess else {
-                    completion((posters:nil, error:PhotoDownloadHandlerError.noSuccess));
+                    completion(PhotoDownloadHandlerError.noSuccess);
                     return
                 }
                 
                 guard let value = response.result.value else {
-                    completion((posters:nil, error:PhotoDownloadHandlerError.invalidJson));
+                    completion(PhotoDownloadHandlerError.invalidJson);
                     return
                 }
                 print(JSON(value))
-                var poster:[Poster] = [];
+                gallery.posters = [];
                 if let nodes = JSON(value)["photos"]["photo"].array {
                     for node in nodes {
-                        poster.append(Poster.init(id: node["id"].stringValue, serverId: node["server"].stringValue, farmId: node["farm"].stringValue, secret: node["secret"].stringValue));
+                        gallery.posters!.append(Poster.init(id: node["id"].stringValue, serverId: node["server"].stringValue, farmId: node["farm"].stringValue, secret: node["secret"].stringValue));
                     }
                 }
-                completion((poster, nil));
+                completion(nil);
         }
     }
 }

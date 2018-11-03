@@ -11,42 +11,29 @@ import UIKit
 import Kingfisher
 
 class CarouselCellViewModel: NSObject {
-    var galleries:[PosterGallery];
+    var gallery:PosterGallery!;
     
-    init(galleries:[PosterGallery]) {
-        self.galleries = galleries;
+    init(gallery:PosterGallery, completion: @escaping ((PhotoDownloadHandler.PhotoDownloadHandlerError?) -> Void)) {
+        super.init();
+        self.gallery = gallery;
+        self.loadFlickGalleriesPhotos(completion: completion);
     }
     
-    func numberOfGalleries() -> Int {
-        return self.galleries.count;
+    func getPostersCount() -> Int {
+        return self.gallery.posters?.count ?? 0;
     }
     
-    func getGalleryNameAt(position:Int) -> String{
-        return self.galleries[position].name ?? "Error?";
+    func getPosterAt(position:Int) -> Poster?{
+        return self.gallery.posters?[position] ?? nil;
     }
     
-    func loadFlickGalleriesPhotos(galleryIndex:Int, completion: @escaping ((posters:[Poster]?, error:PhotoDownloadHandler.PhotoDownloadHandlerError?)) -> Void){
-        PhotoDownloadHandler.shared.downloadPhotosFor(gallery: self.galleries[galleryIndex], completion:completion);
+    func generatePosterImageURLAt(position:Int) -> URL{
+        let poster = getPosterAt(position: position);
+        let url = String.init(format: "https://farm%@.staticflickr.com/%@/%@_%@_o.jpg", poster!.farmId, poster!.serverId, poster!.id, poster!.secret);
+        return URL(string: url)!;
     }
     
-    
-}
-
-extension CarouselCellViewModel: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.galleries[collectionView.tag].posters?.count ?? 0;
+    func loadFlickGalleriesPhotos(completion: @escaping ((PhotoDownloadHandler.PhotoDownloadHandlerError?) -> Void)){
+        PhotoDownloadHandler.shared.downloadPhotosFor(gallery: self.gallery, completion: completion);
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCarouselCell", for: indexPath) as! HeroCarouselCell;
-        collectionView.dataSource
-        cell.heroImageView.kf.setImage(with: self.firebaseUser.photoURL!, placeholder: UIImage(named: "loading_icon_green"));
-        return cell;
-    }
-    
-    
-}
-
-extension CarouselCellViewModel: UICollectionViewDelegate{
-    
 }

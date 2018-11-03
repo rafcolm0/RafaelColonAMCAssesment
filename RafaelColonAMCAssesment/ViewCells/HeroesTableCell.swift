@@ -11,5 +11,35 @@ import UIKit
 
 class HeroesTableCell: UITableViewCell {
     @IBOutlet weak var galleryCollectionView: UICollectionView!
-    var posters:[Poster]?;
+    var carouselViewModel:CarouselCellViewModel?
+    
+    func generateFlickrCollectionCarousel(gallery:PosterGallery!){
+        carouselViewModel = CarouselCellViewModel(gallery:gallery, completion: {
+            (error) in
+            if(error == nil){
+                self.galleryCollectionView.dataSource = self;
+                self.galleryCollectionView.delegate = self;
+                self.galleryCollectionView.reloadData();
+            } else {
+                //msg
+            }
+        });
+    }
+}
+
+extension HeroesTableCell: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.carouselViewModel?.getPostersCount() ?? 0;
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let url = self.carouselViewModel?.generatePosterImageURLAt(position:indexPath.row);
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCarouselCell", for: indexPath) as! HeroCarouselCell;
+        cell.heroImageView.kf.setImage(with:url, placeholder: UIImage(named: "icon_loading_placeholder"));
+        return cell;
+    }
+}
+
+extension HeroesTableCell: UICollectionViewDelegate{
+    
 }

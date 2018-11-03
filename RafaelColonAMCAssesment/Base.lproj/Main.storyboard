@@ -76,7 +76,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
-                                            <outlet property="heroesUICollectionView" destination="Onz-do-Ytl" id="sgW-hm-Af0"/>
+                                            <outlet property="galleryCollectionView" destination="Onz-do-Ytl" id="7Wq-pH-AOc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostersTableCell" rowHeight="140" id="ZP4-lZ-1gZ" userLabel="PosterCarouselTableCell" customClass="PostersTableCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
@@ -97,7 +97,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroCarouselCell" id="xsw-Fz-BJn" customClass="PosterCarouselCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HeroCarouselCell" id="xsw-Fz-BJn" customClass="HeroCarouselCell" customModule="RafaelColonAMCAssesment" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="75" height="105"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -117,7 +117,7 @@
                                                             </constraints>
                                                             <size key="customSize" width="75" height="105"/>
                                                             <connections>
-                                                                <outlet property="posterImageView" destination="mef-Zn-JXj" id="f2z-Y3-OI7"/>
+                                                                <outlet property="heroImageView" destination="mef-Zn-JXj" id="xcO-tP-do4"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -133,8 +133,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="postersTittleLabel" destination="ZBB-Gh-TjV" id="6cg-tL-ahC"/>
-                                            <outlet property="postersUICollectionView" destination="iuv-8I-HJk" id="0pm-PQ-cJW"/>
+                                            <outlet property="galleryCollectionView" destination="iuv-8I-HJk" id="546-1P-TX7"/>
+                                            <outlet property="postersTittleLabel" destination="ZBB-Gh-TjV" id="uTy-xO-zGm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
