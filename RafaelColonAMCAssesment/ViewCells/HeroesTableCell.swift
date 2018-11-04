@@ -25,7 +25,7 @@ class HeroesTableCell: UITableViewCell {
                 self.galleryCollectionView.delegate = self;
                 self.galleryCollectionView.reloadData();
             } else {
-                //if error: for the purpose of the test, we are just setting galleryCollectionView background to red. In real case scenario, here we could show some error message, hide the entire tableview cell, send error logs back to the app stat analytics, etc.
+                //if error: for the purpose of the test, we are just setting galleryCollectionView background to red. In real case scenario, here we could detect enum type of PhotoDownloadHandlerError returned, and show some error message, hide the entire tableview cell, send error logs back to the app stat analytics, etc. accordingly
                 self.galleryCollectionView.backgroundColor = UIColor.red;
             }
         });

@@ -23,7 +23,7 @@ class MainViewController: UIViewController {
             if(error == nil){
                 self.mainTableView.reloadData();
             } else {
-                //if error: for the purpose of the test, we are just setting mainTableView background to red. In real case scenario, here we could show some error message, exit the app, use historial data (backups), send error logs back to the app stat analytics, etc.
+                //if error: for the purpose of the test, we are just setting mainTableView background to red. In real case scenario, here we could detect enum type of PhotoDownloadHandlerError returned, and show some error message, exit the app, use historial data (backups), send error logs back to the app stat analytics, etc. accordingly.
                 self.mainTableView.backgroundColor = UIColor.red;
             }
         });
