@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class MainViewController: UIViewController {
 
     @IBOutlet weak var mainTableView: UITableView!
     let mainViewModel:MainViewModel = MainViewModel();
-    
+    let loadingHud:JGProgressHUD = JGProgressHUD();
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.mainTableView.dataSource = self;
         self.mainTableView.delegate = self;
+        //note: JGProgressHUD is a HUD progress indicator library that normally use on my projects.  Loading it here to imitate Shudder's "Please Wait" loading indicator that shows on the table view.
+        self.loadingHud.textLabel.text = NSLocalizedString("Please Wait...", comment: "");
+        self.loadingHud.show(in:self.view);
         self.mainViewModel.loadFlickUserGalleries(completion:{
             error in
+            //hide HUD indicator, and handle completion results
+            self.loadingHud.dismiss();
             if(error == nil){
                 self.mainTableView.reloadData();
             } else {
